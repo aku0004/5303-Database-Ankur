@@ -10,6 +10,9 @@
 >
 
 - http://cs3.mwsu.edu/~nsheela/dbproject/site/login1.php
+- Login Details are: 
+	 -Username : Aaron
+	 -Password : 12345			
 
 ### File List:
 >
@@ -27,4 +30,5 @@
 - documents - contains all documents for project
     - load_data.sql - script to load database with test data.
     - query_data.sql -  Performed queries.
-	- csv_load_data (folder) - contains all csv files related to tables.
+    - csv_load_data (folder) - contains all csv files related to tables.
+    - relational_diagram.png - contains ralational diagram.
