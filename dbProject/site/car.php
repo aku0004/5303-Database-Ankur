@@ -1,6 +1,6 @@
 <?php
 	error_reporting(1);
-	$db = new mysqli("localhost", "nsheela", "nsheela2015", "nsheela");
+	$db = new mysqli("localhost", "apatel", "apatel2015", "apatel");
 
 	if ($db->connect_errno) {
 		echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
@@ -35,36 +35,48 @@
 <!-- Work -->
 
 <div class="wrapper">
-<table id="deptTable" class="display" cellspacing="0" width="60%" border="1">
+<table id="carsTable" class="display" cellspacing="0" width="60%" border="1">
         <thead>
             <tr>
-                <th>Dept</th>
-                <th>Dept Name</th>
+                <th>CarId</th>
+                <th>UserId</th>
+                <th>Manufacturer</th>
+                <th>Year</th>
+                <th>Model<th>
 
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <th>Dept</th>
-                <th>Dept Name</th>
+                <th>CarId</th>
+                <th>UserId</th>
+                <th>Manufacturer</th>
+                <th>Year</th>
+                <th>Model<th>
             </tr>
         </tfoot>
         <tbody>
-<?php
+        <?php
 //Php will poluate each table row
-$query = "SELECT * FROM department";
+$query = "SELECT * FROM car_information";
 $result = $db->query($query);
 if($result) {
 	while ($row = $result->fetch_assoc()) {
 	
 		echo"<tr>";
-		echo"<td align=\"center\"> {$row['dept_id']} </td>";
-		echo"<td align=\"center\"> {$row['dept_name']} </td>";
+        echo"<td align=\"center\"> {$row['car_id']}";
+        echo"<td align=\"center\"> {$row['user_id']}";
+		echo"<td align=\"center\"> {$row['manufacturer']}";
+		echo"<td align=\"center\"> {$row['year']}";
+		echo"<td align=\"center\"> {$row['model']}";
+		echo"<td>";
+		echo"</td>";
 		echo"</tr>";
-	 }
-}
-?>
-  </tbody>
+		}
+		}
+		?>
+
+ </tbody>
     </table>
     </div>
 			</div>
@@ -178,8 +190,7 @@ if($result) {
 					window.top.location.href = "./car.php"; 
 				});
 
-				
-				$('#deptTable').DataTable();
+				$('#carsTable').DataTable();
 
 				
 			});

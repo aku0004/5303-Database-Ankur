@@ -26,8 +26,8 @@
 session_start();
 if(isset($_POST['submit']))
 {
- mysql_connect('localhost','nsheela','nsheela2015') or die(mysql_error());
- mysql_select_db('nsheela') or die(mysql_error());
+ mysql_connect('localhost','apatel','apatel2015') or die(mysql_error());
+ mysql_select_db('apatel') or die(mysql_error());
  $name=$_POST['username'];
  $pwd=$_POST['password'];
  if($name!=''&&$pwd!='')

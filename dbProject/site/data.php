@@ -1,11 +1,12 @@
 <?php
 	error_reporting(1);
-	$db = new mysqli("localhost", "nsheela", "nsheela2015", "nsheela");
+	$db = new mysqli("localhost", "apatel", "apatel2015", "apatel");
 
 	if ($db->connect_errno) {
 		echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
 	}
 ?>
+
 <html>
 	<head>
 		<title>CarPooling System</title>
@@ -25,7 +26,7 @@
 					<li><a href="#home" id="home"><span class="icon fa-home"></span> Home</a></li>
 					<li><a href="#users" id="users">Users</a></li>
 					<li><a href="#departments" id="departments">Departments</a></li>
-					<li><a href="#car" id="car">Car</a></li>
+					<li><a href="#car" id="car">Car </a></li>
 				</ul>
 			</nav>
 
@@ -33,54 +34,70 @@
 			<div class="wrapper style1 first" id="mainContent">
 
 <!-- Work -->
-
+<div class="wrapper style2" id="usersDiv">
+	<article id="work">
+		<header>
+			<h2>User Management Page</h2>
+			<p>Add users on this page</p>
+		</header>
+		<div class="container" id="mainContent">
+			<div class="row">
+				<div class="4u 12u(mobile)">
+					<section class="box style1">
+						<span class="icon featured fa-user-plus"></span>
+						<h3><a href="#add_user" id="add_user">Add User</a></h3>
+					</section>
+				</div>
+			</div>
+		</div>
+	</article>
+</div>
 <div class="wrapper">
-<table id="carsTable" class="display" cellspacing="0" width="60%" border="1">
+<table id="userTable" class="display" cellspacing="0" width="60%" border="1">
         <thead>
             <tr>
-                <th>CarId</th>
-                <th>UserId</th>
-                <th>Manufacturer</th>
-                <th>Year</th>
-                <th>Model<th>
-
+                <th>UUID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone No</th>
+                <th>Email<th>
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <th>CarId</th>
-                <th>UserId</th>
-                <th>Manufacturer</th>
-                <th>Year</th>
-                <th>Model<th>
+                <th>UUID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone No</th>
+                <th>Email<th>
             </tr>
         </tfoot>
         <tbody>
-        <?php
+
+<?php
 //Php will poluate each table row
-$query = "SELECT * FROM car_information";
+$query = "SELECT *
+FROM user_information";
 $result = $db->query($query);
 if($result) {
 	while ($row = $result->fetch_assoc()) {
 	
 		echo"<tr>";
-        echo"<td align=\"center\"> {$row['car_id']}";
-        echo"<td align=\"center\"> {$row['user_id']}";
-		echo"<td align=\"center\"> {$row['manufacturer']}";
-		echo"<td align=\"center\"> {$row['year']}";
-		echo"<td align=\"center\"> {$row['model']}";
+		echo"<td align=\"center\"> {$row['user_id']} </td>";
+		echo"<td align=\"center\"> {$row['first_name']} </td>";
+		echo"<td align=\"center\"> {$row['last_name']} </td>";
+		echo"<td> {$row['contact_phoneno']} </td>";
+		echo"<td align=\"center\"> {$row['contact_emailid']} </td>";
 		echo"<td>";
 		echo"</td>";
 		echo"</tr>";
-		}
-		}
-		?>
-
- </tbody>
+	 }
+}
+?>
+  </tbody>
     </table>
     </div>
 			</div>
-
 		
 
 		<!-- Contact -->
@@ -170,15 +187,15 @@ if($result) {
 			
 				$( '#home' ).click(function(e) {
 					e.preventDefault()
-					window.top.location.href = "./login1.php""; 
+					window.top.location.href = "index.html"; 
 				});
 			
 				$( '#users' ).click(function(e) {
-					console.log("hello");
+					e.preventDefault()
 					window.top.location.href = "./data.php"; 
 				});
 				$( '#add_user' ).click(function(e) {
-					console.log("hello");
+					e.preventDefault()
 					window.top.location.href = "./test.html"; 
 				});
 				$( '#departments' ).click(function(e) {
@@ -190,7 +207,7 @@ if($result) {
 					window.top.location.href = "./car.php"; 
 				});
 
-				$('#carsTable').DataTable();
+				$('#userTable').DataTable();
 
 				
 			});

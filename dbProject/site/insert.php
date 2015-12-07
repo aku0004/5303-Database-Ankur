@@ -4,7 +4,7 @@ Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password)
 */
 error_reporting(1);
-$link = mysqli_connect("localhost", "nsheela", "nsheela2015", "nsheela");
+$link = mysqli_connect("localhost", "apatel", "apatel2015", "apatel");
  
 // Check connection
 if($link === false){
